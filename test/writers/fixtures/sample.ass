@@ -1,0 +1,21 @@
+[Script Info]
+; Sample fixture for ASS writer/round-trip tests.
+Title: Sample
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+PlayResX: 384
+PlayResY: 288
+
+[Aegisub Project Garbage]
+Active Line: 1
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,16,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,2,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:01.00,0:00:03.00,Default,Speaker,0000,0000,0000,,Hello world
+Dialogue: 0,0:00:04.00,0:00:06.00,Default,,0000,0000,0000,,{\b1}Bold{\b0} {\i1}italic{\i0}
+Dialogue: 0,0:00:07.00,0:00:09.00,Default,Narrator,0000,0000,0000,,Third cue with speaker

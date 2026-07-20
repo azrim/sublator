@@ -1,0 +1,46 @@
+name: subtitle_translator
+description: "Subtitle Translator — translate subtitle files using AI"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  forui: ^0.24.0
+  drift: ^2.34.2
+  flutter_secure_storage: ^9.0.0
+  hooks_riverpod: ^3.3.2
+  flutter_hooks: ^0.21.0
+  riverpod_annotation: ^4.0.3
+  http: ^1.2.0
+  window_manager: ^0.5.2
+  file_picker: ^11.0.2
+  desktop_drop: ^0.7.1
+  subtitle: ^0.2.0
+  dart_ass: ^1.2.2
+  path: ^1.9.0
+  path_provider: ^2.1.0
+  swift_animations: ^3.0.0
+  url_launcher: ^6.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.0
+  drift_dev: ^2.34.0
+  riverpod_generator: ^4.0.4
+  forui_cli: ^0.24.0
+
+flutter:
+  fonts:
+    - family: Geist
+      fonts:
+        - asset: assets/fonts/Geist/Geist.ttf
+        - asset: assets/fonts/Geist/Geist-Italic.ttf
+          style: italic
+  uses-material-design: true
