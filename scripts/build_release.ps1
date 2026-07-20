@@ -26,8 +26,8 @@ $distDir = "dist"
 Write-Host "Building $name (build $build)..." -ForegroundColor Cyan
 
 # Cleanup build artifacts
-if (Test-Path $releaseDir) { Remove-Item $releaseDir -Recurse -Force }
-if (Test-Path $distDir) { Remove-Item $distDir -Recurse -Force }
+Remove-Item $releaseDir -Recurse -Force -ErrorAction SilentlyContinue
+Remove-Item $distDir -Recurse -Force -ErrorAction SilentlyContinue
 
 # Optional flutter clean
 if ($c) {
