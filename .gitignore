@@ -53,3 +53,6 @@ app.*.map.json
 
 # Session handoff context
 HANDOFF.md
+
+# Release artifacts
+/dist/

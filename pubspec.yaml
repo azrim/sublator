@@ -1,7 +1,7 @@
 name: subtitle_translator
 description: "Subtitle Translator — translate subtitle files using AI"
 publish_to: 'none'
-version: 1.0.0+1
+version: 0.0.1+1
 
 environment:
   sdk: ^3.12.2
