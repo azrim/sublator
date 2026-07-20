@@ -1,7 +1,7 @@
 # build_release.ps1 — Clean build + zip with version from pubspec.yaml
 # Usage: .\scripts\build_release.ps1 [-c]
 #   -c  Run flutter clean before build (not default)
-# Output: dist/sublator-v0.0.1-x64.zip, dist/sublator-v0.0.1-arm64.zip
+# Output: dist/sublator-v0.0.1-20250115-1430.zip
 
 param(
     [switch]$c
@@ -36,28 +36,16 @@ if ($c) {
 
 flutter pub get 2>&1 | Out-Null
 
-# Build x64
-Write-Host "`nBuilding x64..." -ForegroundColor Yellow
-flutter build windows --release --target-platform windows-x64 2>&1
+# Build
+flutter build windows --release 2>&1
 if ($LASTEXITCODE -ne 0) { exit 1 }
 
-$x64Dir = "build\windows\x64\runner\Release"
+# Bundle
+$releaseDir = "build\windows\x64\runner\Release"
 New-Item -ItemType Directory -Path $distDir -Force | Out-Null
-Compress-Archive -Path "$x64Dir\*" -DestinationPath "$distDir\$name-x64-$timestamp.zip" -Force
-$zip = Get-Item "$distDir\$name-x64-$timestamp.zip"
+
+Compress-Archive -Path "$releaseDir\*" -DestinationPath "$distDir\$name-windows-$timestamp.zip" -Force
+
+$zip = Get-Item "$distDir\$name-windows-$timestamp.zip"
 $sizeMB = [math]::Round($zip.Length / 1MB, 1)
-Write-Host "x64 done: $sizeMB MB" -ForegroundColor Green
-
-# Build ARM64
-Write-Host "`nBuilding ARM64..." -ForegroundColor Yellow
-flutter build windows --release --target-platform windows-arm64 2>&1
-if ($LASTEXITCODE -ne 0) { exit 1 }
-
-$arm64Dir = "build\windows-arm64\runner\Release"
-Compress-Archive -Path "$arm64Dir\*" -DestinationPath "$distDir\$name-arm64-$timestamp.zip" -Force
-$zip = Get-Item "$distDir\$name-arm64-$timestamp.zip"
-$sizeMB = [math]::Round($zip.Length / 1MB, 1)
-Write-Host "ARM64 done: $sizeMB MB" -ForegroundColor Green
-
-Write-Host "`nAll builds complete!" -ForegroundColor Cyan
-Get-ChildItem "$distDir\*.zip" | ForEach-Object { Write-Host "  $($_.Name) ($([math]::Round($_.Length / 1MB, 1)) MB)" }
+Write-Host "`nDone: $($zip.FullName) ($sizeMB MB)" -ForegroundColor Green
