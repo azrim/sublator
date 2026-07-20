@@ -14,6 +14,16 @@ AI-powered subtitle file translator for Windows desktop. Translates SRT, ASS/SSA
 - **OpenSubtitles**: Search and download subtitles directly
 - **Credential security**: API keys stored in Windows Credential Manager (DPAPI)
 
+## Screenshots
+
+| Home | Search | Preview |
+|------|--------|---------|
+| ![Home](docs/screencapture/1-home.png) | ![Search](docs/screencapture/2-search.png) | ![Preview](docs/screencapture/5-preview.png) |
+
+| Settings | History |
+|----------|---------|
+| ![Settings](docs/screencapture/4-settings.png) | ![History](docs/screencapture/3-history.png) |
+
 ## Quick Start
 
 ```bash
